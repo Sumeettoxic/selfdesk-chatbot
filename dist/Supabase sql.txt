@@ -1,0 +1,31 @@
+-- Create API keys table
+CREATE TABLE api_keys (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  key_hash TEXT NOT NULL,
+  domains TEXT[] NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  expires_at TIMESTAMP WITH TIME ZONE NULL,
+  is_active BOOLEAN DEFAULT TRUE,
+  usage_count INTEGER DEFAULT 0
+);
+
+-- Set up Row Level Security 
+ALTER TABLE api_keys ENABLE ROW LEVEL SECURITY;
+
+-- Create policies to secure access
+CREATE POLICY "API keys are viewable by authenticated users only" 
+ON api_keys FOR SELECT 
+USING (auth.role() = 'authenticated');
+
+CREATE POLICY "API keys are insertable by authenticated users only" 
+ON api_keys FOR INSERT 
+WITH CHECK (auth.role() = 'authenticated');
+
+CREATE POLICY "API keys are updateable by authenticated users only" 
+ON api_keys FOR UPDATE 
+USING (auth.role() = 'authenticated');
+
+CREATE POLICY "API keys are deletable by authenticated users only" 
+ON api_keys FOR DELETE 
+USING (auth.role() = 'authenticated');

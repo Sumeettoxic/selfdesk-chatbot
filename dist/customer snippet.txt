@@ -1,0 +1,17 @@
+<!-- Self Desk Assistant Integration -->
+<div id="self-desk-assistant" data-api-key="YOUR_API_KEY"></div>
+
+<!-- Load the chatbot resources -->
+<script src="https://cdn.yourserver.com/selfdesk/chatbot.min.js"></script>
+
+<!-- Initialize the chatbot -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    SelfDeskAssistant.init({
+      apiKey: 'YOUR_API_KEY',
+      language: 'en-IN',
+      autoOpen: false,
+      welcomeMessage: '👋 Hi! I\'m your assistant. How can I help you today?'
+    });
+  });
+</script>
