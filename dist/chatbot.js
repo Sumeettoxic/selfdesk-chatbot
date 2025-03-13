@@ -8,7 +8,7 @@
   // Configuration constants
   const CONFIG = {
     VERSION: '1.0.0',
-    CSS_URL: 'https://cdn.yourserver.com/selfdesk/chatbot.min.css',
+    CSS_URL: 'https://cdn.jsdelivr.net/gh/imtoxiii/selfdesk-chatbot@latest/dist/chatbot.css',
     TRANSCRIPT_API: 'https://n8n.prayogeek.in/webhook/fbfb5fd8-ac96-41b8-a246-ff5e94fa77d6',
     CHAT_API: 'https://n8n.prayogeek.in/webhook/2fac5cf2-f190-4cff-a47e-dff1ae1bfb98',
     TRANSLATION_API: 'https://n8n.prayogeek.in/webhook/72a57608-fa58-4d19-9e55-8f36608345d7',
